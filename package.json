@@ -1,6 +1,6 @@
 {
   "name": "@microcursor/node-axkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Native macOS Accessibility API integration for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
