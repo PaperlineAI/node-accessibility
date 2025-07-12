@@ -141,7 +141,7 @@ struct AccessibilityManager {
             // Exact match (case insensitive)
             if title.lowercased() == windowTitle.lowercased() {
                 AXUIElementPerformAction(window, kAXRaiseAction as CFString)
-                app.activate(options: [.activateAllWindows])
+                app.activate()
                 return
             }
         }
