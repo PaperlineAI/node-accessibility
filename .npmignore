@@ -1,0 +1,66 @@
+# Source TypeScript files (we ship compiled JS)
+index.ts
+example.ts
+test.js
+tsconfig.json
+
+# Development files
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode/
+.idea/
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Documentation source
+docs/
+*.md.backup
+
+# Build artifacts (except the ones we need)
+node_modules/
+coverage/
+.nyc_output/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+appveyor.yml
+
+# Linting
+.eslintrc*
+.prettierrc*
+.stylelintrc* 
+
+# Build files
+.build/
+*.build/
+build/
+.swiftpm/

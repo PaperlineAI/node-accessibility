@@ -1,0 +1,24 @@
+{
+  "originHash" : "40fbb29129e497746d25c42c934d145a0bb1f6b9fe1215fa2b3fdf3ab2c3f826",
+  "pins" : [
+    {
+      "identity" : "node-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kabiroberai/node-swift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d80f4e4d888c859edac049ececad1abb0e74e18c"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

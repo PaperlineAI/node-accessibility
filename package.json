@@ -1,0 +1,97 @@
+{
+  "name": "@microcursor/node-axkit",
+  "version": "0.1.0",
+  "description": "Native macOS Accessibility API integration for Node.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microcursor/node-axkit.git"
+  },
+  "homepage": "https://github.com/microcursor/node-axkit#readme",
+  "bugs": {
+    "url": "https://github.com/microcursor/node-axkit/issues"
+  },
+  "files": [
+    "dist",
+    "scripts",
+    "Sources",
+    "Package.swift",
+    "Package.resolved"
+  ],
+  "scripts": {
+    "build": "pnpm run build:swift && pnpm run build:ts && pnpm run copy:native",
+    "build:debug": "pnpm run build:swift:debug && pnpm run build:ts && pnpm run copy:native:debug",
+    "dev": "pnpm run build:swift:debug && pnpm run build:ts:dev",
+    "build:swift": "node-swift build",
+    "build:swift:debug": "node-swift build --debug",
+    "build:ts": "tsup",
+    "build:ts:dev": "tsup --watch",
+    "build:ts:fast": "tsup --sourcemap --dts false",
+    "copy:native": "tsx scripts/copy-native.ts release",
+    "copy:native:debug": "tsx scripts/copy-native.ts debug",
+    "rebuild:debug": "node-swift rebuild --debug",
+    "rebuild:release": "node-swift rebuild",
+    "clean": "node-swift clean && rm -rf dist",
+    "prepublishOnly": "pnpm run build",
+    "test": "pnpm run build:swift:debug && node dist/test.js",
+    "publish:dry": "npm publish --dry-run",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish",
+    "version:patch": "npm version patch --no-git-tag-version",
+    "version:minor": "npm version minor --no-git-tag-version",
+    "version:major": "npm version major --no-git-tag-version"
+  },
+  "keywords": [
+    "macos",
+    "accessibility",
+    "window-management",
+    "automation",
+    "swift",
+    "native",
+    "nodejs",
+    "typescript",
+    "axkit",
+    "window-focus",
+    "app-automation",
+    "system-integration",
+    "nodeswift"
+  ],
+  "author": {
+    "name": "Evgenii Mozharovskii",
+    "email": "evgenii@microcursor.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "node-swift": "git+https://github.com/kabiroberai/node-swift.git"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
