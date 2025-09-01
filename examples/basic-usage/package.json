@@ -1,14 +1,14 @@
 {
-  "name": "node-axkit-example",
+  "name": "node-accessibility-example",
   "version": "1.0.0",
-  "description": "Example project showcasing how to use node-axkit package for macOS Accessibility API",
+  "description": "Example project showcasing how to use node-accessibility package for macOS Accessibility API",
   "main": "index.ts",
   "scripts": {
     "start": "npx tsx index.ts",
     "dev": "npx tsx watch index.ts"
   },
   "dependencies": {
-    "@microcursor/node-axkit": "file:../.."
+    "@paperline/node-accessibility": "file:../.."
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

@@ -1,4 +1,4 @@
-# node-axkit
+# node-accessibility
 
 A NodeJS module with native Swift code for macOS Accessibility API integration, providing TypeScript interfaces for seamless window management and automation.
 
@@ -14,7 +14,7 @@ A NodeJS module with native Swift code for macOS Accessibility API integration, 
 ## Installation
 
 ```bash
-npm install @microcursor/node-axkit
+npm install @paperline/node-accessibility
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ import {
   awaitAccessibilityPermission,
   listWindows, 
   focusWindow 
-} from '@microcursor/node-axkit';
+} from '@paperline/node-accessibility';
 
 // Check if accessibility permissions are granted
 if (!checkAccessibilityPermission()) {
@@ -59,7 +59,7 @@ const {
   awaitAccessibilityPermission,
   listWindows, 
   focusWindow 
-} = require('@microcursor/node-axkit');
+} = require('@paperline/node-accessibility');
 
 // Check permissions and use async/await
 async function main() {

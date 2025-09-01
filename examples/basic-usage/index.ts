@@ -4,7 +4,7 @@ import {
   focusWindow,
   listWindows,
   requestAccessibilityPermission,
-} from "@microcursor/node-axkit";
+} from "@paperline/node-accessibility";
 
 /**
  * Example 1: Basic permission check
@@ -213,7 +213,7 @@ async function workWithMultipleApps(): Promise<void> {
  * Main function to run all examples
  */
 async function main(): Promise<void> {
-  console.log("🚀 Node-AXKit Accessibility API Examples\n");
+  console.log("🚀 Node Accessibility API Examples\n");
 
   try {
     // Run all examples

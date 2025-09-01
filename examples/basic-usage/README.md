@@ -1,10 +1,10 @@
 # Basic Usage Example
 
-This example demonstrates how to use the `@microcursor/node-axkit` package for macOS Accessibility API integration.
+This example demonstrates how to use the `@paperline/node-accessibility` package for macOS Accessibility API integration.
 
 ## Setup
 
-1. **Install the package** (from the root of the node-axkit repository):
+1. **Install the package** (from the root of the node-accessibility repository):
    ```bash
    cd examples/basic-usage
    npm install

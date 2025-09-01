@@ -1,6 +1,6 @@
 {
-  "name": "@microcursor/node-axkit",
-  "version": "0.1.1",
+  "name": "@paperline/node-accessibility",
+  "version": "0.1.2",
   "description": "Native macOS Accessibility API integration for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microcursor/node-axkit.git"
+    "url": "git+https://github.com/PaperlineAI/node-accessibility.git"
   },
-  "homepage": "https://github.com/microcursor/node-axkit#readme",
+  "homepage": "https://github.com/PaperlineAI/node-accessibility#readme",
   "bugs": {
-    "url": "https://github.com/microcursor/node-axkit/issues"
+    "url": "https://github.com/PaperlineAI/node-accessibility/issues"
   },
   "files": [
     "dist",
@@ -67,7 +67,7 @@
   ],
   "author": {
     "name": "Evgenii Mozharovskii",
-    "email": "evgenii@microcursor.com"
+    "email": "evgenii@paperline.ai"
   },
   "license": "MIT",
   "dependencies": {
