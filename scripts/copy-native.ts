@@ -49,7 +49,16 @@ function copyNativeModule(sourceDir: string): boolean {
       // Strip debug symbols from binary files to reduce size
       if (file.src.endsWith(".node") || file.src.endsWith(".dylib")) {
         try {
-          execSync(`strip -x "${destFile}"`, { stdio: "ignore" });
+          // Remove quarantine attributes
+          execSync(`xattr -dr com.apple.quarantine "${destFile}" || true`, { stdio: "ignore" });
+
+          // Strip debug symbols using Apple's toolchain
+          execSync(`xcrun strip -x "${destFile}"`, { stdio: "ignore" });
+
+          // Re-sign with ad-hoc signature to fix code signature after stripping
+          execSync(`codesign --force --sign - "${destFile}"`, { stdio: "ignore" });
+
+          console.log(`🔧 Processed ${file.desc} (stripped + re-signed)`);
         } catch (error) {
           console.log(`⚠️  Could not strip ${file.desc} (this is normal for some builds)`);
         }
