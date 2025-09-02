@@ -29,6 +29,9 @@ let package = Package(
                 .product(name: "NodeAPI", package: "node-swift"),
                 .product(name: "NodeModuleSupport", package: "node-swift"),
             ],
+            swiftSettings: [
+                .unsafeFlags(["-O"], .when(configuration: .release))
+            ],
             linkerSettings: [
                 .unsafeFlags(
                     [
