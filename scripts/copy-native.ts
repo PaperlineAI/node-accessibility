@@ -1,5 +1,6 @@
 #!/usr/bin/env tsx
 
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 
@@ -44,6 +45,15 @@ function copyNativeModule(sourceDir: string): boolean {
       }
 
       fs.copyFileSync(sourceFile, destFile);
+
+      // Strip debug symbols from binary files to reduce size
+      if (file.src.endsWith(".node") || file.src.endsWith(".dylib")) {
+        try {
+          execSync(`strip -x "${destFile}"`, { stdio: "ignore" });
+        } catch (error) {
+          console.log(`⚠️  Could not strip ${file.desc} (this is normal for some builds)`);
+        }
+      }
 
       const stats = fs.statSync(destFile);
       const fileSizeKB = Math.round(stats.size / 1024);
