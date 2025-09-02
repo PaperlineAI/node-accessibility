@@ -88,10 +88,10 @@ function loadNativeModule(): NativeModule {
   if (modulePathOverride) {
     const overridePath = path.resolve(baseDir, modulePathOverride);
     if (fs.existsSync(overridePath)) {
-      console.log(`[node-axkit] Loading native module from override: ${overridePath}`);
+      console.log(`[node-accessibility] Loading native module from override: ${overridePath}`);
       return require(overridePath);
     } else {
-      console.warn(`[node-axkit] Override path does not exist: ${overridePath}`);
+      console.warn(`[node-accessibility] Override path does not exist: ${overridePath}`);
     }
   }
 
@@ -119,12 +119,12 @@ function loadNativeModule(): NativeModule {
       if (fs.existsSync(modulePath)) {
         const module = require(modulePath);
         const relativePath = path.relative(process.cwd(), modulePath);
-        console.log(`[node-axkit] Loading native module from: ${relativePath}`);
+        console.log(`[node-accessibility] Loading native module from: ${relativePath}`);
         return module;
       }
     } catch (error) {
       console.warn(
-        `[node-axkit] Failed to load ${modulePath}: ${
+        `[node-accessibility] Failed to load ${modulePath}: ${
           error instanceof Error ? error.message : String(error)
         }`,
       );
@@ -143,7 +143,7 @@ function loadNativeModule(): NativeModule {
   ].join("\n    ");
 
   throw new Error(
-    `[node-axkit] Native module not found. Searched paths:\n${searchedPaths}\n\n` +
+    `[node-accessibility] Native module not found. Searched paths:\n${searchedPaths}\n\n` +
       `Environment information:\n    ${envInfo}\n\n` +
       `Please ensure the native module is built by running:\n` +
       `  npm run build:debug  (for debug build)\n` +
@@ -181,7 +181,7 @@ const nativeModule: NativeModule = loadNativeModule();
  *
  * @example
  * ```typescript
- * import { listWindows } from 'node-axkit';
+ * import { listWindows } from '@paperline/node-accessibility';
  *
  * // List Safari windows
  * const windows = await listWindows('com.apple.Safari');
@@ -189,7 +189,7 @@ const nativeModule: NativeModule = loadNativeModule();
  *
  * // List VS Code windows
  * const codeWindows = await listWindows('com.microsoft.VSCode');
- * console.log(codeWindows); // ["index.ts — node-axkit", "README.md — node-axkit"]
+ * console.log(codeWindows); // ["index.ts — node-accessibility", "README.md — node-accessibility"]
  * ```
  *
  * @remarks
@@ -221,13 +221,13 @@ export const listWindows: (bundleId: string) => Promise<string[]> = nativeModule
  *
  * @example
  * ```typescript
- * import { focusWindow } from 'node-axkit';
+ * import { focusWindow } from '@paperline/node-accessibility';
  *
  * // Focus a specific Safari tab
  * await focusWindow('com.apple.Safari', 'Google - Safari');
  *
  * // Focus a VS Code window
- * await focusWindow('com.microsoft.VSCode', 'index.ts — node-axkit');
+ * await focusWindow('com.microsoft.VSCode', 'index.ts — node-accessibility');
  *
  * // Error handling
  * try {
@@ -261,7 +261,7 @@ export const focusWindow: (bundleId: string, windowTitle: string) => Promise<str
  *
  * @example
  * ```typescript
- * import { checkAccessibilityPermission } from 'node-axkit';
+ * import { checkAccessibilityPermission } from '@paperline/node-accessibility';
  *
  * if (checkAccessibilityPermission()) {
  *   console.log('✅ Accessibility permissions granted');
@@ -300,7 +300,7 @@ export const checkAccessibilityPermission: () => boolean =
  *
  * @example
  * ```typescript
- * import { requestAccessibilityPermission, checkAccessibilityPermission } from 'node-axkit';
+ * import { requestAccessibilityPermission, checkAccessibilityPermission } from '@paperline/node-accessibility';
  *
  * // Check if permissions are already granted
  * if (!checkAccessibilityPermission()) {
@@ -382,7 +382,7 @@ export const requestAccessibilityPermission: () => boolean =
  *
  * @example
  * ```typescript
- * import { awaitAccessibilityPermission } from 'node-axkit';
+ * import { awaitAccessibilityPermission } from '@paperline/node-accessibility';
  *
  * // Basic usage with default 30-second timeout
  * const granted = await awaitAccessibilityPermission();
@@ -491,21 +491,21 @@ export const awaitAccessibilityPermission: (timeout: number) => Promise<boolean>
  *
  * @example
  * ```typescript
- * import nodeAxkit from 'node-axkit';
+ * import nodeAccessibility from '@paperline/node-accessibility';
  *
  * // Accessibility API with async permission request
- * if (!nodeAxkit.checkAccessibilityPermission()) {
+ * if (!nodeAccessibility.checkAccessibilityPermission()) {
  *   console.log('Requesting accessibility permissions...');
  *   // Wait up to 45 seconds (45000ms) for user to grant permissions
- *   const granted = await nodeAxkit.awaitAccessibilityPermission(45000);
+ *   const granted = await nodeAccessibility.awaitAccessibilityPermission(45000);
  *   if (!granted) {
  *     console.log('Accessibility permissions required');
  *     return;
  *   }
  * }
  *
- * const windows = await nodeAxkit.listWindows('com.apple.Safari');
- * await nodeAxkit.focusWindow('com.apple.Safari', windows[0]);
+ * const windows = await nodeAccessibility.listWindows('com.apple.Safari');
+ * await nodeAccessibility.focusWindow('com.apple.Safari', windows[0]);
  * ```
  */
 export default {
@@ -528,7 +528,7 @@ export default {
  *
  * @example
  * ```typescript
- * import { NativeModule } from 'node-axkit';
+ * import { NativeModule } from '@paperline/node-accessibility';
  *
  * // Create a mock implementation
  * const mockModule: NativeModule = {

@@ -66,7 +66,7 @@ pnpm run clean
 ## Directory Structure
 
 ```
-node-axkit/
+node-accessibility/
 ├── dist/                    # Distribution files (created by build)
 │   ├── index.js            # Compiled TypeScript
 │   ├── index.d.ts          # Type definitions
